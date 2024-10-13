@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+:root {
+  --primary: #e7418f;
+  --secondary: #c23364;
+  --tertiary: #7b3e4d;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.gamePlayArea {
+  max-width: 1300px;
+  width: 90vw;
+  max-height: 700px;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--secondary);
+  box-shadow: 0 0 10px var(--secondary);
+  border-radius: 10px;
+  margin: auto;
+}
+
+.dashBoard {
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
+  justify-content: space-between;
+  border: 2px solid var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Russo One', sans-serif;
+  margin: 10px;
+}
+.progressContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 170px;
+}
+#levelDisplay {
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  right: 143px;
+}
+#levelValue {
+  font-family: sans-serif;
+}
+.liveText {
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 23px;
+  color: white;
+}
+
+.scoreText {
+  font-weight: bold;
+  margin-right: 5px;
+  font-family: 'Tiny5', sans-serif;
+}
+
+.progress {
+  height: 23px;
+  width: 300px;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  margin-left: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+  background-color: #4caf50;
+  width: 0;
+  height: 23px;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: width 0.5s ease-in-out;
+}
+.btnPause {
+  padding: 3px 6px;
+  border: 2px solid var(--primary);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
+  color: #fff;
+  font-family: 'Stencil', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 5px #2e3d24;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.btnPause:hover {
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
+  color: #fff;
+  border: 2px solid #000;
+}
+
+.btnPause:active {
+  box-shadow: 0 2px #2e3d24;
+  transform: translateY(2px);
+}
+.infoMessage {
+  color: white;
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  position: relative;
+  top: 569px;
+  text-align: center;
+  display: none;
+}
+.pauseText {
+  z-index: 3;
+  display: none;
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
+  text-shadow: 1px 1px 0 #4caf50, /* green shadow */ 2px 2px 0 #388e3c,
+    /* darker green shadow */ 3px 3px 0 #2e7d32,
+    /* even darker green shadow */ 4px 4px 0 rgba(0, 0, 0, 0.3); /* soft black shadow for depth */
+  padding: 15px 30px;
+  background: linear-gradient(to bottom, #6b8e23 0%, #3c523a 100%);
+  border: 2px solid #4caf50;
+  border-radius: 7px;
+  box-shadow: 0 5px #2e3d24,
+    /* dark shadow underneath */ 0 1px 10px rgba(0, 0, 0, 0.4); /* soft shadow for more depth */
+  transition: transform 0.2s ease;
+}
+
+.gameOverElement {
+  position: absolute;
+  height: 435px;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  padding: 20px;
+  font-family: 'Russo One', sans-serif;
+}
+.gameOverElement img {
+  height: 150px;
+  width: 400px;
+}
+.gameOverElement h1 {
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 43px;
+  color: white;
+  text-shadow: 2px 2px 0px black, 3px 3px 0px black, 4px 4px 0px black;
+}
+
+.gameOverElement .message {
+  font-size: 18px;
+  position: relative;
+  top: 18px;
+  font-family: 'Seymour One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 0px black, 3px 3px 0px black, 4px 4px 0px black;
+  animation: shake-pause 1s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes shake-pause {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50%,
+  75% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+.btnStart {
+  padding: 12px 17px;
+  border: 2px solid #4caf50;
+  background: linear-gradient(to bottom, #5e7d32 0%, #3c523a 100%);
+  color: #fff;
+  font-family: 'Stencil', sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 5px #2e3d24;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btnStart::before,
+.btnStart::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.btnStart:hover {
+  background: linear-gradient(to bottom, #4a6d29 0%, #334229 100%);
+  color: #fff;
+  border: 2px solid #4caf50;
+}
+
+.btnStart:active {
+  box-shadow: 0 2px #2e3d24;
+  transform: translateY(2px);
+}
+.container {
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../assets/nasa-Q1p7bh3SHj8-unsplash.jpg);
+}
+
+.base {
+  border-radius: 5px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  z-index: 1;
+}
+
+.box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  transition: all 0.1s ease-in-out;
+  z-index: 2;
+}
+
+.turet {
+  position: absolute;
+  width: 60px;
+  height: 50px;
+  background: linear-gradient(to bottom, #4a6d29 0%, #334229 100%);
+  border-radius: 5px;
+  box-shadow: 0 5px #2e3d24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.turet::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  background: linear-gradient(to bottom, #6b8e23, #556b2f);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  box-shadow: 0 2px #2e3d24;
+}
+
+.turet::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(to bottom, #6b8e23, #556b2f);
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  box-shadow: 0 2px #2e3d24;
+}
+
+.fireme {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ff4500 0%, #ff8c00 60%, #ff0000 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 8px rgba(255, 69, 0, 0.7),
+    0 0 30px 15px rgba(255, 140, 0, 0.5);
+  z-index: 1;
+  animation: fireball-animation 0.3s infinite;
+}
+
+@keyframes fireball-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px 8px rgba(255, 69, 0, 0.7),
+      0 0 30px 15px rgba(255, 140, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+    box-shadow: 0 0 20px 10px rgba(255, 69, 0, 0.8),
+      0 0 40px 20px rgba(255, 140, 0, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px 8px rgba(255, 69, 0, 0.7),
+      0 0 30px 15px rgba(255, 140, 0, 0.5);
+  }
+}
+
+.explosion {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(255, 0, 0, 1) 60%,
+    rgba(255, 0, 0, 0) 100%
+  );
+  border-radius: 50%;
+  animation: explode-animation 0.5s forwards;
+}
+
+@keyframes explode-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.baddy {
+  position: absolute;
+}
+
+.life-enemy {
+  background-color: #ff3333;
+}
+@keyframes blink {
+  0%,
+  100% {
+    border-color: red;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+.blink-red {
+  animation: blink 0.5s ease-in-out;
+}
+.link {
+  color: white;
+  position: fixed;
+  bottom: 7px;
+  text-align: center;
+  user-select: none;
+  font-family: 'Tiny5', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0px auto;
+  font-size: 18px;
+  z-index: 1000;
+  width: 100%;
+  right: 3px;
+}
+.link a {
+  color: white;
+}
+.link a:hover {
+  color: #2e7d32;
+}
+
+@media (max-width: 600px) {
+  .dashBoard {
+    flex-direction: column;
+    align-items: center;
+  }
+  .progressContainer {
+    width: 100%;
+  }
+  .btnPause {
+    margin-top: 10px;
+  }
+}
+
+.popup-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow for contrast */
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: none; /* Hidden by default */
+  animation: fadeInOut 2s ease-in-out; /* Fade in and out animation */
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

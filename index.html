@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Tank Titans</title>
+</head>
+<body>
+
+    <div class="gamePlayArea" id="gamePlayArea">
+        <div class="dashBoard" id="dashBoard">
+            <div><span class="scoreText">Your Score:</span> <span class="scoreDash">0</span></div>
+            <div id="levelDisplay">Level: <span id="levelValue">1</span></div>
+            <div class="progressContainer">
+                <div class="liveText">Life: </div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressbar"></div>
+                </div>
+            </div>
+            <div class="btnPause"><i class="fas fa-pause"></i></div>
+        </div>
+        
+        
+
+        <div class="container" id="container">
+            <div class="gameOverElement" id="gameOverElement">
+                <img src="assets/pngwing.com (4).png" alt="Game Over Image">
+                <h1>tank titans</h1>
+                <span class="message">Click to start game</span> <br> 
+                <div class="btnStart">Start Game</div>
+            </div>
+
+            <div class="base"></div>
+            <div class="infoMessage" id="info">Tap mouse to shoot !</div>
+            <div class="link" id="link">BUILT BY <a href="https://github.com/yungestbee/tank-titans" target="_blank">Talent Code Africa</a></div>
+            <div id="pauseText" class="pauseText">PAUSED</div>
+            <div class="box">
+                <div class="turet"></div>
+            </div>
+        </div>
+
+        <div class="popup-message alert alert-success" role="alert" style="display: none;">
+            Level Up!
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="assets/war-99133.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="backgroundEffect" loop>
+        <source src="assets/war-drums-173853.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="shootSound">
+        <source src="assets/laser-gun-81720.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="explosionSound">
+        <source src="assets/explosion-6055.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="collisionSound">
+        <source src="assets/whoosh-drum-hits-169007.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="nextLevel">
+        <source src="assets/level-up-47165.mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="nextLevelVoice">
+        <source src="assets/next-level-160613.mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    
+    
+    
+    
+
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
