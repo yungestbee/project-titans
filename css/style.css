@@ -141,12 +141,12 @@ body {
   transform: translate(-50%, -50%);
   font-size: 30px;
   color: white;
-  text-shadow: 1px 1px 0 #4caf50, /* green shadow */ 2px 2px 0 #388e3c,
+  text-shadow: 1px 1px 0 var(--primary), /* green shadow */ 2px 2px 0 #000,
     /* darker green shadow */ 3px 3px 0 #2e7d32,
     /* even darker green shadow */ 4px 4px 0 rgba(0, 0, 0, 0.3); /* soft black shadow for depth */
   padding: 15px 30px;
-  background: linear-gradient(to bottom, #6b8e23 0%, #3c523a 100%);
-  border: 2px solid #4caf50;
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
+  border: 2px solid var(--primary);
   border-radius: 7px;
   box-shadow: 0 5px #2e3d24,
     /* dark shadow underneath */ 0 1px 10px rgba(0, 0, 0, 0.4); /* soft shadow for more depth */
@@ -232,8 +232,8 @@ body {
 }
 .btnStart {
   padding: 12px 17px;
-  border: 2px solid #4caf50;
-  background: linear-gradient(to bottom, #5e7d32 0%, #3c523a 100%);
+  border: 2px solid var(--primary);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
   color: #fff;
   font-family: 'Stencil', sans-serif;
   font-size: 1.8rem;
@@ -270,9 +270,9 @@ body {
 }
 
 .btnStart:hover {
-  background: linear-gradient(to bottom, #4a6d29 0%, #334229 100%);
-  color: #fff;
-  border: 2px solid #4caf50;
+  background-color: var(--primary);
+  color: #000;
+  border: 2px solid #000;
 }
 
 .btnStart:active {
@@ -316,9 +316,9 @@ body {
   position: absolute;
   width: 60px;
   height: 50px;
-  background: linear-gradient(to bottom, #4a6d29 0%, #334229 100%);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
   border-radius: 5px;
-  box-shadow: 0 5px #2e3d24;
+  box-shadow: 0 5px #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -330,12 +330,12 @@ body {
   position: absolute;
   width: 40px;
   height: 10px;
-  background: linear-gradient(to bottom, #6b8e23, #556b2f);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 5px;
-  box-shadow: 0 2px #2e3d24;
+  box-shadow: 0 2px #000;
 }
 
 .turet::after {
@@ -343,12 +343,12 @@ body {
   position: absolute;
   width: 15px;
   height: 15px;
-  background: linear-gradient(to bottom, #6b8e23, #556b2f);
+  background: linear-gradient(to bottom, var(--primary), var(--tertiary));
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  box-shadow: 0 2px #2e3d24;
+  box-shadow: 0 2px #000;
 }
 
 .fireme {
@@ -450,7 +450,7 @@ body {
   color: white;
 }
 .link a:hover {
-  color: #2e7d32;
+  color: var(--primary);
 }
 
 @media (max-width: 600px) {
